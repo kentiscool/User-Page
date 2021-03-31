@@ -2,7 +2,7 @@
 
 You can use the [editor on GitHub](https://github.com/kentiscool/User-Page/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-[Link](url) and ![Image](https://www.kencanapp.com/_next/image?url=%2Fprofile%2Fkent.jpg&w=1920&q=75 | | width=200)
+[Link](url) and ![Image](https://www.kencanapp.com/_next/image?url=%2Fprofile%2Fkent.jpg&w=1920&q=75 | width=200)
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
