@@ -6,103 +6,103 @@ Hi I'm Kent Jonathan Utomo. As of 2021, I am in my junior year.
 
 ### Markdown
 
-func(this *DeviceInfoUseCase) TraceContact() ([][]int64, error) {
-	fmt.Println("trace contact DeviceInfoUseCase")
-	userList, partitionList, err := this.userLocationPostgres.GetClusters()
-	if err != nil {
-		fmt.Println(err.Error())
-		return err
-	}
-	set := UniquePairsSet()
-	var contactClusters [][]*_user.UserLocationInterval
-	var wg sync.WaitGroup
+	func(this *DeviceInfoUseCase) TraceContact() ([][]int64, error) {
+		fmt.Println("trace contact DeviceInfoUseCase")
+		userList, partitionList, err := this.userLocationPostgres.GetClusters()
+		if err != nil {
+			fmt.Println(err.Error())
+			return err
+		}
+		set := UniquePairsSet()
+		var contactClusters [][]*_user.UserLocationInterval
+		var wg sync.WaitGroup
 
-	wg.Add(len(partitionList)-1)
-	for i := 1; i < len(partitionList); i++ {
-		go func(i int) {
-			overlappingIntervals, err := this.getOverlappingInterval(userList[i-1 : partitionList[i]])
-			if err != nil {
-				return nil, err
-			}
-			contactClusters = append(contactClusters, overlappingIntervals...)
-			wg.Done()
-		} (i)
-	}
+		wg.Add(len(partitionList)-1)
+		for i := 1; i < len(partitionList); i++ {
+			go func(i int) {
+				overlappingIntervals, err := this.getOverlappingInterval(userList[i-1 : partitionList[i]])
+				if err != nil {
+					return nil, err
+				}
+				contactClusters = append(contactClusters, overlappingIntervals...)
+				wg.Done()
+			} (i)
+		}
 
-	wg.Wait()
+		wg.Wait()
 
-	
-	for _, clstr := range intervalList {
-		for _, interval := range clstr[1:] {
-			if (clstr[0].UserID != interval.UserID) {
-				set.InsertPair(clstr[0].UserID, interval.UserID)
+
+		for _, clstr := range intervalList {
+			for _, interval := range clstr[1:] {
+				if (clstr[0].UserID != interval.UserID) {
+					set.InsertPair(clstr[0].UserID, interval.UserID)
+				}
 			}
 		}
-	}
-	
-	return set.GetAllUniquePairs()
-}
 
-Local functions
-func(this *DeviceInfoUseCase) GetOverlappingInterval(locationList []*_user.UserLocation, set &) ([][]*_user.UserLocationInterval, error) {
-	intervalList, err := this.userLocationPostgres.GetIntervals(locationList)
-	if err != nil {
-		return nil, err
+		return set.GetAllUniquePairs()
 	}
 
-	var intervalClusters [][]*_user.UserLocation
-	m = make(map[int64]int)
+	Local functions
+	func(this *DeviceInfoUseCase) GetOverlappingInterval(locationList []*_user.UserLocation, set &) ([][]*_user.UserLocationInterval, error) {
+		intervalList, err := this.userLocationPostgres.GetIntervals(locationList)
+		if err != nil {
+			return nil, err
+		}
 
-	for idx, loc := range intervalList {
-		if (loc.IsStart) {
-			m[loc.UserLocationID] = idx
+		var intervalClusters [][]*_user.UserLocation
+		m = make(map[int64]int)
+
+		for idx, loc := range intervalList {
+			if (loc.IsStart) {
+				m[loc.UserLocationID] = idx
+			} else {
+				if (m[loc.UserLocationID] != i-1) {
+					intervalClusters = append(intervalClusters, intervalList[m[loc.UserLocationID] : idx + 1])
+				}
+			}
+		}
+
+		return intervalClusters, nil
+	}
+
+	type UniquePairsSet struct {
+		Map map[int64]int64
+	}
+
+	func UniquePairsSet() *UniquePairsSet {
+		return &UniquePairsSet{
+			Map: make(map[int64]int)
+		}
+	}
+
+	func(this *UniquePairsSet) InsertPair(a int64, b int64) {
+		if (a < b) {
+			_, ok := this.Map[a]
+			if (ok) {
+				return 
+			}
+			this.Map[a] = b
 		} else {
-			if (m[loc.UserLocationID] != i-1) {
-				intervalClusters = append(intervalClusters, intervalList[m[loc.UserLocationID] : idx + 1])
-			}
+			_, ok := this.Map[b]
+			if (ok) {
+				return
+			} 
+			this.Map[b] = a
 		}
 	}
 
-	return intervalClusters, nil
-}
-
-type UniquePairsSet struct {
-	Map map[int64]int64
-}
-
-func UniquePairsSet() *UniquePairsSet {
-	return &UniquePairsSet{
-		Map: make(map[int64]int)
-	}
-}
-
-func(this *UniquePairsSet) InsertPair(a int64, b int64) {
-	if (a < b) {
-		_, ok := this.Map[a]
-		if (ok) {
-			return 
+	func(this *UniquePairsSet) GetAllUniquePairs() [][]int64{
+		var pairs [][]int64
+		for k, v := range this.Map {
+			pairs = append(pairs, []int{k,v})
 		}
-		this.Map[a] = b
-	} else {
-		_, ok := this.Map[b]
-		if (ok) {
-			return
-		} 
-		this.Map[b] = a
+		return pairs
 	}
-}
 
-func(this *UniquePairsSet) GetAllUniquePairs() [][]int64{
-	var pairs [][]int64
-	for k, v := range this.Map {
-		pairs = append(pairs, []int{k,v})
+	func(this *UniquePairsSet) Clear() {
+		Map = make(map[int64]int64)
 	}
-	return pairs
-}
-
-func(this *UniquePairsSet) Clear() {
-	Map = make(map[int64]int64)
-}
 
 ```markdown
 
