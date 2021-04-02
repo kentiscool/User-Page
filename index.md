@@ -107,7 +107,7 @@ Favorite piece of code recently for contact tracing (Unfortunately its too slow 
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+[Link](https://www.kencanapp.com/) and ![Image](https://www.kencanapp.com/_next/image?url=%2FKencan_header_logo.svg&w=1920&q=75)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
