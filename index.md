@@ -3,8 +3,7 @@
 Hi I'm Kent Jonathan Utomo. As of 2021, I am in my junior year. 
 
 <img src="https://www.kencanapp.com/_next/image?url=%2Fprofile%2Fkent.jpg&w=1920&q=75" width="100" height="100">
-
-### Favorite piece of code recently for contact tracing (Unfortunately its too slow for production but it was fun)
+Favorite piece of code recently for contact tracing (Unfortunately its too slow for production but it was fun)
 
 	func(this *DeviceInfoUseCase) TraceContact() ([][]int64, error) {
 		fmt.Println("trace contact DeviceInfoUseCase")
