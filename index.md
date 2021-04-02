@@ -45,7 +45,7 @@ func(this *DeviceInfoUseCase) TraceContact() ([][]int64, error) {
 	return set.GetAllUniquePairs()
 }
 
-// Local functions
+Local functions
 func(this *DeviceInfoUseCase) GetOverlappingInterval(locationList []*_user.UserLocation, set &) ([][]*_user.UserLocationInterval, error) {
 	intervalList, err := this.userLocationPostgres.GetIntervals(locationList)
 	if err != nil {
