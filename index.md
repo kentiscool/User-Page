@@ -7,9 +7,9 @@ Hi I'm Kent Jonathan Utomo. As of 2021, I am in my junior year.
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
 ### Markdown
+
 func(this *DeviceInfoUseCase) TraceContact() ([][]int64, error) {
 	fmt.Println("trace contact DeviceInfoUseCase")
-
 	userList, partitionList, err := this.userLocationPostgres.GetClusters()
 	if err != nil {
 		fmt.Println(err.Error())
