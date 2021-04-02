@@ -4,7 +4,7 @@ Hi I'm Kent Jonathan Utomo. As of 2021, I am in my junior year.
 
 <img src="https://www.kencanapp.com/_next/image?url=%2Fprofile%2Fkent.jpg&w=1920&q=75" width="100" height="100">
 
-[Link](https://www.kencanapp.com/) and ![Image](https://www.kencanapp.com/_next/image?url=%2FKencan_header_logo.svg&w=1920&q=75)
+[Link](https://www.kencanapp.com/) ![Image](https://www.kencanapp.com/_next/image?url=%2FKencan_header_logo.svg&w=1920&q=75)
 
 Favorite piece of code recently for contact tracing (Unfortunately its too slow for production but it was fun)
 
