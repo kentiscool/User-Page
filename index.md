@@ -6,8 +6,10 @@ Hi I'm Kent Jonathan Utomo. As of 2021, I am in my junior year.
 
 Stuff I'm working on:
 
-[Link](https://www.kencanapp.com/) ![Image](https://www.kencanapp.com/_next/image?url=%2FKencan_header_logo.svg&w=1920&q=75)
--fuck
+[Link](https://www.kencanapp.com/) 
+
+Languages:
+
 
 Favorite piece of code recently for contact tracing (Unfortunately its too slow for production but it was fun)
 
@@ -110,18 +112,3 @@ Favorite piece of code recently for contact tracing (Unfortunately its too slow 
 	}
 
 ```markdown
-
-**Bold** and _Italic_ and `Code` text
-
-
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kentiscool/User-Page/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
